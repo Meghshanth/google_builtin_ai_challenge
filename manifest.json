@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Text Input Example",
+  "version": "1.0",
+  "description": "A Chrome extension that takes input, processes it, and displays the output.",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": []
+}
