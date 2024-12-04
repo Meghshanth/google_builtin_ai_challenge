@@ -99,7 +99,8 @@ let aiOutput = [];  // Store AI output here to send to localStorage
 
 function startRecognition() {
     chrome.storage.local.get(['userLists'], (result) => {
-        if (result['userLists'].length < 5) {
+        const userLists = result['userLists'] || [];
+        if (userLists.length < 5) {
             // Clear previous transcript and cumulative transcript
             cumulativeTranscript = '';
             transcript.textContent = '';
