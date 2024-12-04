@@ -1,10 +1,33 @@
 {
   "manifest_version": 3,
-  "name": "Text Input Example",
+  "name": "Keep Lists extension",
   "version": "1.0",
-  "description": "A Chrome extension that takes input, processes it, and displays the output.",
+  "permissions": ["scripting", "activeTab", "storage", "sidePanel", "tabs"],
   "action": {
-    "default_popup": "index.html"
+    "default_title": "Keep List"
   },
-  "permissions": []
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "mic-permission.html",
+        "mic-permission.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

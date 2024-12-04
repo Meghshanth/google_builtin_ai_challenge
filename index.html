@@ -2,29 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello Extension</title>
-    <style>
-        body {
-            width: 500px;
-            height: 250px;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            border-radius: 12px;
-        }
-        #output {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep Lists</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>Enter Text and See Output</h1>
-<form id="textForm">
-    <label for="textInput">Your Input:</label>
-    <input type="text" id="textInput" required>
-    <button type="submit">Submit</button>
-</form>
-<p id="output"></p>
+<div class="tabs">
+    <button class="tabLinks active" id="generateListTab">Create List</button>
+    <button class="tabLinks" id="previousListsTab">Previous Lists</button>
+    <button class="tabLinks" id="aboutExtensionTab">About</button>
+</div>
+<div class="tabContent active" id="generateListContent">
+    <p>|| Is it time to make a list? ||</p>
+        <button id="micAccessButton">Allow Microphone Access</button>
+        <button id="startStopButton" disabled>Start Transcription</button>
+    <div id="transcriptContainer">
+        <p id="transcriptText"></p>
+
+        <p id="transcript">Your speech here</p>
+    </div>
+</div>
+<!-- Previous Lists Tab Content -->
+<div class="tabContent" id="previousListsContent">
+    <h2>Previous Lists</h2>
+    <div id="savedListsContainer"></div>
+    <div id="selectedCheckListContent" style="display: none;"></div>
+</div>
+<div class="tabContent" id="aboutExtensionContent">
+    <h3 style="text-align: center;">Keep Lists</h3>
+    <ul>
+        <li>Use it to make maximum 5 lists to always check!!</li>
+        <li>Uses Prompt API in Chrome  browser for making lists</li>
+    </ul>
+</div>
+<script src="content-script.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
